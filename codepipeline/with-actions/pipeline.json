@@ -1,0 +1,72 @@
+{
+    "pipeline": {
+        "name": "node-application",
+        "roleArn": "arn:aws:iam::452154012700:role/service-role/AWSCodePipelineServiceRole-us-east-1-node-application",
+        "artifactStore": {
+            "type": "S3",
+            "location": "codepipeline-us-east-1-690083231282"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "CodeCommit",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "BranchName": "master",
+                            "PollForSourceChanges": "false",
+                            "RepositoryName": "node-application"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": []
+                    }
+                ]
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Build",
+                            "owner": "AWS",
+                            "provider": "CodeBuild",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ProjectName": "node-application-build"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "BuildArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "version": 1
+    },
+    "metadata": {
+        "pipelineArn": "arn:aws:codepipeline:us-east-1:452154012700:node-application",
+        "created": 1542200743.478,
+        "updated": 1542200743.478
+    }
+}

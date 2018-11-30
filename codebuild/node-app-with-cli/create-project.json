@@ -1,0 +1,28 @@
+{
+    "name": "node_app_with_cli",
+    "description": "",
+    "source": {
+        "type": "CODECOMMIT",
+	"location": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/node-app-with-cli",
+        "gitCloneDepth": 0,
+        "buildspec": ""
+    },
+    "artifacts": {
+        "type": "S3",
+        "location": "itprodevopsbucket-nova",
+        "path": "artifacts-node-web-app-with-cli",
+        "namespaceType": "BUILD_ID",
+        "packaging": "ZIP",
+        "overrideArtifactName": true,
+        "encryptionDisabled": true,
+        "artifactIdentifier": ""
+    },
+    "environment": {
+        "type": "LINUX_CONTAINER",
+        "image": "aws/codebuild/nodejs:8.11.0",
+        "computeType": "BUILD_GENERAL1_SMALL",
+        "environmentVariables": [],
+        "privilegedMode": true
+    },
+    "serviceRole": "arn:aws:iam::452154012700:role/AWSCodeBuildServiceRole"
+}

@@ -1,0 +1,32 @@
+version: "0.2"
+env:
+  variables:
+    PROJECT_NAME: "my-first-application"
+  # parameter-store:
+  #   WEATHER_API_KEY: "Darksky API Key"
+phases:
+  install:
+    commands:
+      - echo "Running the install phase..."
+  pre_build:
+    commands:
+      - echo "Entering pre_build phase..."
+      - npm install
+      - echo "Installing Node dependencies..."
+    finally:
+      - echo "Finished installing dependencies..."
+  build:
+    commands:
+      - echo "Entering build phase..."
+      - echo "Starting on `date`..."
+      - npm run test
+    finally:
+      - echo "Tests finished..."
+  post_build:
+    commands:
+      - echo "Project passes..."
+artifacts:
+  type: zip
+  files:
+    - 'index.js'
+    - 'app.js'
