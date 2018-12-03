@@ -5,5 +5,8 @@
   "main": "src/index.js",
   "author": "Justin Dennison",
   "license": "MIT",
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "aws-sdk": "^2.368.0"
+  }
 }
