@@ -39,3 +39,4 @@ Thumbs.db
 
 # ----- Project Ignored Files ----- #
 node_modules
+*.pptx
