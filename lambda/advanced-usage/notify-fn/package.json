@@ -1,0 +1,10 @@
+{
+  "name": "notify-fn",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Justin Dennison",
+  "license": "ISC"
+}
