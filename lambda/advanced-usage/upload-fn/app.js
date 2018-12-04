@@ -14,9 +14,9 @@ exports.handler = (event, context) => {
    return Promise.all(objects.map(async object => {
      const item = { TableName: TABLE_NAME, Item: createDBItem(object) }
      await dynamo.putItem(item).promise()
-     const message = JSON.stringify(item)	
+     const message = JSON.stringify(object)	
      await sns.publish({ Message: message, TopicArn: TOPIC_ARN }).promise()
-     return message
+     return object
    })).then(messages => context.done(null, messages))
       .catch(err => context.done(err))
    
@@ -26,7 +26,7 @@ function createDBItem(object) {
 	return {
 	   filename: {S: object.key },
 	   bucket: {S: object.bucket },
-	   completed: {S: 'new' }
+	   completed: {BOOL: false }
 	}
 }
 

@@ -6,7 +6,7 @@ with open(filepath) as f:
 
 sentences = (' '.join(choice(words).strip()
                 for _ in range(randint(10, 30))) + '.' 
-                    for _ in range(100))
+                    for _ in range(5))
 
 for i, sentence in enumerate(sentences):
     filename = '{}.txt'.format(i)
