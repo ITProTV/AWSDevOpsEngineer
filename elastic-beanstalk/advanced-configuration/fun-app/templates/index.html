@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sample Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
+</head>
+<body>
+   <div class="container">
+       <h1 class="title">Welcome to ITProTV!!</h1>
+       {% if alarm %}
+       <h2 class="alarm">This is dev mode! Oh no!</h2>   
+       {% endif %}
+       {% if version %}
+        <p class="version">Version: {{ version }}</p> 
+       {% endif %}
+   </div> 
+</body>
+</html>
