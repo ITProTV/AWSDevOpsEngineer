@@ -1,0 +1,7 @@
+version: 0.0
+os: linux
+files:
+  - source: config/message
+    destination: /tmp
+  - source: config/user.json
+    destination: /opt/first-contact/
